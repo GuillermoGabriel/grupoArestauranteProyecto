@@ -8,7 +8,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Menu</h1>
+                    <h1>Realizar Venta</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
@@ -28,7 +28,7 @@
             @endif
 
             <div class="col-auto my-1">
-                <a href="{{route('menu.create')}}" class="btn btn-success">Nuevo Menu <i class="fas fa-plus"></i></a>
+                <a href="{{route('registrarventa.create')}}" class="btn btn-success">Nuevo venta <i class="fas fa-cart-plus"></i></a>
             </div>
 
         </div><!-- /.container-fluid -->
@@ -41,7 +41,7 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header bg-blue">
-                            <h3 class="card-title ">Menu Del Dia</h3>
+                            <h3 class="card-title ">Ventas Del Dia</h3>
                         </div>
                         <div class="col-sm-12 my-1">
                             <form class="form-search">
@@ -59,12 +59,18 @@
                                 <thead class="table-warning">
 
                                     <th>Id</th>
-                                    <th>Categoria</th>
-                                    <th>Plato</th>
-                                    <th>Precio</th>
-                                    <th>Cantidad Inicial </th>
-                                    <th>Stock</th>
-                                    <th>Total Ganancia 💰</th>
+                                    <th>Cliente</th>
+                                    <th>Menu</th>
+                                    
+                                    <th>Cantidad</th>
+                                     <th>stock</th>
+                                    <th>Bebida</th>
+                                    <!-- <th>Precio</th> -->
+                                    <th>Cantidad</th>
+                                    <th>Total</th>
+                                    <th>Pago</th>
+                                    <th>Vuelto</th>
+                                    <th>fecha</th>
 
                                     <th>
                                         <center>Acciones</center>
@@ -72,29 +78,33 @@
 
                                 </thead>
                                 <tbody>
-                                    @if(count($menu)<=0) <tr>
+                                    @if(count($venta)<=0) <tr>
                                         <td colspan="5">No hay resultados</td>
                                         </tr>
                                         @else
-
-                                         
                                         <!-- $categoria es del controller lo del compact// ==2?"No Disponible":"Disponible"-->
-                                        @foreach($menu as $menus)
+                                        @foreach($venta as $ventas)
                                         <tr>
-                                            <td>{{$menus->id}}</td>
-                                            <td>{{$menus->nombre}}</td>
-                                            <td>{{$menus->plato}}</td>
-                                            <td>S/.{{$menus->precio}}</td>
-                                            <td>{{$menus->cantidadinicial}}</td>
-                                            {{--  <td>{{$menus->stock}}</td>--}}
-                                            <td>{{$menus->stock-$menus->cantidad_menu}}</td> 
-                                            <!-- $menus->cantidadinicial -->
-                                            <td>S/.{{($menus->cantidad_menu)*$menus->precio}}</td>
+                                            <td>{{$ventas->id}}</td>
+                                            <td>{{$ventas->nombre}}</td>
+                                            <td>{{$ventas->plato}}</td>
+                                           
+                                            <td>{{$ventas->cantidad_menu}}</td>
+                                            <td>{{$ventas->stock-$ventas->cantidad_menu}}</td>
+
+
+                                            <td>{{$ventas->bebida}}</td>
+                                            {{--<td>S/.{{$ventas->precio_bebida}}</td>--}}
+                                            <td>{{$ventas->cantidad_bebida}}</td>
+                                            <td>S/.{{$ventas->precio*$ventas->cantidad_menu + $ventas->precio_bebida*$ventas->cantidad_bebida}}</td> -->
+                                            <td>S/.{{$ventas->pago}}</td>
+                                            <td>S/.{{ $ventas->pago-$ventas->precio*$ventas->cantidad_menu + $ventas->precio_bebida*$ventas->cantidad_bebida}}</td>
+                                            <td>{{$ventas->fecharegistro}}</td>
                                             <td>
-                                                <center><a href="{{route('menu.edit',$menus->id)}}"
+                                            <center><a href="{{route('registrarventa.edit',$ventas->id)}}"
                                                         class="btn btn-outline-warning btn-sm"> <i class="fas fa-edit"></i>  </a>
-                                                    <button type="button" class="btn btn-outline-danger btn-sm"
-                                                        data-toggle="modal" data-target="#modal-delete-{{$menus->id}}">
+                                                        <button type="button" class="btn btn-outline-danger btn-sm"
+                                                        data-toggle="modal" data-target="#modal-delete-{{$ventas->id}}">
                                                         <i class="fas fa-trash"></i>
                                                     </button>
                                                 </center>
@@ -102,8 +112,8 @@
                                             </td>
 
                                         </tr>
-                                        @include('menu.delete')
-
+                                    
+@include('venta.delete')
                                         @endforeach
                                         @endif
 
@@ -111,7 +121,7 @@
                                 </tbody>
 
                             </table>
-                           {{$menu->links()}}
+                           {{$venta->links()}}
 
 
                         </div>

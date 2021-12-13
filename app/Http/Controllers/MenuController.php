@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Plato;
 use App\Models\menu;
+use App\Models\categoria;
 use Illuminate\Support\Facades\DB;
 
 class MenuController extends Controller
@@ -14,20 +15,32 @@ class MenuController extends Controller
     {
         $texto=trim($request->get('texto'));
         $menu=DB::table('menu as me')
-                 ->select('me.id','ca.nombre','pl.plato','pl.precio','me.cantidadinicial','me.stock')
+                 ->select('me.id','ca.nombre','pl.plato','pl.precio','me.cantidadinicial','me.stock','cantidad_menu')
+                 ->leftjoin('venta as ve','ve.menu','=','me.id')
                  ->join('platos as pl','pl.id','=','me.plato')
                  ->join('categorias as ca','ca.id','=','pl.id_categoria')
                  ->where('pl.plato','LIKE','%'.$texto.'%')
                  ->orWhere('pl.precio','LIKE','%'.$texto.'%')
+                 
+                 
                 ->paginate(7);
         return view('menu.index',compact('menu','texto'));
     }
 
-    
+
     public function create()
     {
+        $categorias=Categoria::get();
         $plato=Plato::get();
-        return view('menu.create',compact('plato'));
+        // $plato=DB::table('platos as pl')
+        //         ->select('pl.plato')
+        //         ->join('categorias as ca','ca.id','=','pl.id_categoria')
+        //         ->where('pl.id_categoria','=','')
+
+
+    
+
+        return view('menu.create',compact('plato','categorias'));
     }
 
    
@@ -48,7 +61,7 @@ class MenuController extends Controller
    
     public function show($id)
     {
-        //
+        
     }
 
    

@@ -31,20 +31,38 @@
                     <div class="col-sm-12">
                         @csrf
 
+      
+
+
+
+                        <!-- <div class="form-group my-2">
+                            <label class="my-2" for="nombre">
+                                <h5>Categoria Plato (*)</h5>
+                            </label>
+                            <select class="form-control custom-select" name="cbo_categoria" id="cbo_categoria" >
+                                <option value="">Seleccione</option>
+                                @foreach($categorias as $categoria)
+                                <option value="{{$categoria->id}}">{{$categoria->nombre}}</option>
+
+                                @endforeach
+                            </select>
+
+                        </div> -->
 
                         <div class="form-group my-2">
                             <label class="my-2" for="nombre">
                                 <h5>Plato (*)</h5>
                             </label>
-                            <select class="form-control custom-select" name="cbo_plato" required>
+                            <select class="form-control custom-select" name="cbo_plato" id="platos" onchange="seleccionar();" required>
                                 <option value="">Seleccione</option>
                                 @foreach($plato as $platos)
                                 <option value="{{$platos->id}}">{{$platos->plato}}</option>
 
                                 @endforeach
                             </select>
-
+                           
                         </div>
+                        <span id="comentario"></span>
 
 
                         <div class="form-group my-3 ">

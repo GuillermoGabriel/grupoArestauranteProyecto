@@ -20,6 +20,8 @@
 <script src="/template/dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="/template/dist/js/demo.js"></script>
+
+<script src="/template/dist/js/codigo.js"></script>
 <!-- Page specific script -->
 <script>
   $(function () {
@@ -28,13 +30,14 @@
       "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
     }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
     $('#example2').DataTable({
-      "paging": true,
+      "paging": false,
       "lengthChange": false,
       "searching": false,
       "ordering": true,
-      "info": true,
+      "info": false,
       "autoWidth": false,
       "responsive": true,
     });
   });
+  
 </script>

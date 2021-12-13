@@ -62,7 +62,7 @@
                             <div class="form-group my-3">
 
                                 <label for="precio"><h5>Precio</h5></label>
-                                <input type="text" class="form-control" name="precio" required value="{{$bebida->precio}}">
+                                <input type="text" class="form-control" name="precio" required value="{{$bebida->precio_bebida}}">
                             </div>
                             <div class="form-group my-3">
                                     <input type="submit" class="btn btn-success" value="Guardar">

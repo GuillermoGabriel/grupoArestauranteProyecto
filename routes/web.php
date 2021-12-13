@@ -6,6 +6,7 @@ use App\Http\Controllers\PlatoController;
 use App\Http\Controllers\BebidaController;
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\MenuController;
+use App\Http\Controllers\VentaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,4 +32,6 @@ Route::resource('/bebidas',BebidaController::class);
 Route::resource('/clientes',ClienteController::class);
 
 Route::resource('/menu',MenuController::class);
+
+Route::resource('/registrarventa',VentaController::class);
 

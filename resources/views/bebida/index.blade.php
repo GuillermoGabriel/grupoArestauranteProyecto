@@ -82,10 +82,11 @@
                                             <td>{{$bebidas->categoria_bebida}}</td>
                                             <td>{{$bebidas->bebida}}</td>
                                             <td>{{$bebidas->descripcion}}</td>
-                                            <td>S/.{{$bebidas->precio}}</td>
+                                            <td>S/.{{$bebidas->precio_bebida}}</td>
                                             <td>
                                                 <center><a href="{{route('bebidas.edit',$bebidas->id)}}"
-                                                        class="btn btn-outline-warning btn-sm"> <i class="fas fa-edit"></i> </a>
+                                                        class="btn btn-outline-warning btn-sm"> <i
+                                                            class="fas fa-edit"></i> </a>
                                                     <button type="button" class="btn btn-outline-danger btn-sm"
                                                         data-toggle="modal"
                                                         data-target="#modal-delete-{{$bebidas->id}}">

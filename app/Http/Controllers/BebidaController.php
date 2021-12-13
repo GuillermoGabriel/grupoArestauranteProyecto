@@ -13,7 +13,7 @@ class BebidaController extends Controller
     {
         $texto=trim($request->get('texto'));
         $bebida=DB::table('bebidas as be')
-                 ->select('be.id','cb.categoria_bebida','be.bebida','be.descripcion','be.precio')
+                 ->select('be.id','cb.categoria_bebida','be.bebida','be.descripcion','be.precio_bebida')
                  ->join('categoria_bebida as cb','cb.id','=','be.categoria_bebida')
                  ->where('cb.categoria_bebida','LIKE','%'.$texto.'%')
                  ->orWhere('be.bebida','LIKE','%'.$texto.'%')
@@ -40,7 +40,7 @@ class BebidaController extends Controller
         $bebida->categoria_bebida=$request->cbo_Bebida;
         $bebida->bebida=$request->input('bebida');
         $bebida->descripcion=$request->input('descripcion');
-        $bebida->precio=$request->input('precio');
+        $bebida->precio_bebida=$request->input('precio');
 
         $bebida->save();
       
@@ -69,7 +69,7 @@ class BebidaController extends Controller
         $bebida->categoria_bebida=$request->cbo_Bebida;
         $bebida->bebida=$request->input('bebida');
         $bebida->descripcion=$request->input('descripcion');
-        $bebida->precio=$request->input('precio');
+        $bebida->precio_bebida=$request->input('precio');
 
         $bebida->save();
 

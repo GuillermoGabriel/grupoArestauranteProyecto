@@ -1,3 +1,5 @@
-const input =Document.querySelector(".cliente");
+$(function(){
 
-input.setAttribute("minlength","8")
+    alert ('holaaaaaa');
+
+});
