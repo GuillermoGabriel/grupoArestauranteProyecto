@@ -14,8 +14,9 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body">
+      <div class="modal-body">                                                            
         Deseas eliminar la Categoria Bebida <h7><b class="text-uppercase text-danger"> {{$bebidacategorias->categoria_bebida}} </b></h7>
+                                                                                        
       </div>
       <div class="modal-footer h-5">
         <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Cerrar</button>

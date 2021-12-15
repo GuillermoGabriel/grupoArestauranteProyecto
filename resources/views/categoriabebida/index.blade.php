@@ -72,10 +72,15 @@
 
                                 @else
                                 <!-- $categoria es del controller lo del compact ==2?"No Disponible":"Disponible"-->
+
+                                         <!-- variable que enviamos del controlador -->
                                 @foreach($bebidacategoria as $bebidacategorias)
                                 <tr>
+
+                                    <!-- aca ponemos la variable y el campo que nos va a devolver -->
                                     <td>{{$bebidacategorias->id}}</td>
                                     <td>{{$bebidacategorias->categoria_bebida}}</td>
+
                                   <td><center> <a href="{{route('categoriabebida.edit',$bebidacategorias->id)}}" class="btn btn-outline-warning btn-sm" > <i class="fas fa-edit"></i> </a>
                                   
                                   <button type="button" class="btn btn-outline-danger btn-sm" data-toggle="modal" data-target="#modal-delete-{{$bebidacategorias->id}}">

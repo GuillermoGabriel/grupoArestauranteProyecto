@@ -2,58 +2,7 @@
 
 @section('content')
 
-    {{--<div class="container-wrapper">
-
-    <div class="alert alert-success shadow p-3 mb-3  rounded "   role="alert">
-        <p> <h4>Nueva Categoria</h4></p>
-     
-        </div>
-     
-    
-        
-        <div class="row"></div>
-            <div class="col-xl-12">
-                <form action="{{route('categoria.store')}}" method="post">
-                    @csrf
-                 
-                <div class="form-group my-1">
-                    <label for="nombre"><h5>Categoria</h5></label>
-                    <input type="text" class="form-control" name="nombre" required maxlength="30">
-                </div>
-
-                <div class="form-group my-3">
-                <label for="nombre"><h5>Estado Categoria(*)</h5></label>
-                    <select class="form-control" name="cbo_estado" required>
-                                <option value="">Seleccione</option>
-                                @foreach($estado as $estados)
-                                <option value="{{$estados->id}}">{{$estados->estado}}</option>
-
-                                @endforeach
-                    </select>      
-                </div>
-
-                <div class="form-group my-3">
-                    <label for="descripcion"><h5>Descripcion</h5></label>
-                    <input type="text" class="form-control " name="descripcion" required maxlength="300">
-                </div>
-                <!-- <div class="form-group my-1">
-                    <label for="estado">Estado</label>
-                    <input type="text" class="form-control" name="estado"  required>
-                </div> -->
-                
-                <div class="form-group">
-                        <input type="submit" class="btn btn-success my-3" value="Guardar"> 
-                       <!--  <input type="reset" class="btn btn-default" value="Cancelar"> -->
-                        <a href="javascript:history.back()" class="btn btn-primary">Ir al listado</a>
-
-                </div>
-                </form>
-                
-
-            
-            </div>
-
-    </div>--}}
+  
 
 
     <div class="content-wrapper">

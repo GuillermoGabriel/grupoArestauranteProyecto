@@ -28,7 +28,8 @@
             @endif
 
             <div class="col-auto my-1">
-                <a href="{{route('registrarventa.create')}}" class="btn btn-success">Nuevo venta <i class="fas fa-cart-plus"></i></a>
+                <a href="{{route('registrarventa.create')}}" class="btn btn-success">Nuevo venta <i
+                        class="fas fa-cart-plus"></i></a>
             </div>
 
         </div><!-- /.container-fluid -->
@@ -61,9 +62,9 @@
                                     <th>Id</th>
                                     <th>Cliente</th>
                                     <th>Menu</th>
-                                    
+
                                     <th>Cantidad</th>
-                                     <th>stock</th>
+                                    <th>stock</th>
                                     <th>Bebida</th>
                                     <!-- <th>Precio</th> -->
                                     <th>Cantidad</th>
@@ -88,7 +89,7 @@
                                             <td>{{$ventas->id}}</td>
                                             <td>{{$ventas->nombre}}</td>
                                             <td>{{$ventas->plato}}</td>
-                                           
+
                                             <td>{{$ventas->cantidad_menu}}</td>
                                             <td>{{$ventas->stock-$ventas->cantidad_menu}}</td>
 
@@ -96,14 +97,17 @@
                                             <td>{{$ventas->bebida}}</td>
                                             {{--<td>S/.{{$ventas->precio_bebida}}</td>--}}
                                             <td>{{$ventas->cantidad_bebida}}</td>
-                                            <td>S/.{{$ventas->precio*$ventas->cantidad_menu + $ventas->precio_bebida*$ventas->cantidad_bebida}}</td> -->
+                                            <td>S/.{{$ventas->precio*$ventas->cantidad_menu + $ventas->precio_bebida*$ventas->cantidad_bebida}}
+                                            </td> -->
                                             <td>S/.{{$ventas->pago}}</td>
-                                            <td>S/.{{ $ventas->pago-$ventas->precio*$ventas->cantidad_menu + $ventas->precio_bebida*$ventas->cantidad_bebida}}</td>
+                                            <td>S/.{{ $ventas->pago-(($ventas->precio*$ventas->cantidad_menu) + ($ventas->precio_bebida*$ventas->cantidad_bebida))}}
+                                            </td>
                                             <td>{{$ventas->fecharegistro}}</td>
                                             <td>
-                                            <center><a href="{{route('registrarventa.edit',$ventas->id)}}"
-                                                        class="btn btn-outline-warning btn-sm"> <i class="fas fa-edit"></i>  </a>
-                                                        <button type="button" class="btn btn-outline-danger btn-sm"
+                                                <center><a href="{{route('registrarventa.edit',$ventas->id)}}"
+                                                        class="btn btn-outline-warning btn-sm"> <i
+                                                            class="fas fa-edit"></i> </a>
+                                                    <button type="button" class="btn btn-outline-danger btn-sm"
                                                         data-toggle="modal" data-target="#modal-delete-{{$ventas->id}}">
                                                         <i class="fas fa-trash"></i>
                                                     </button>
@@ -112,8 +116,8 @@
                                             </td>
 
                                         </tr>
-                                    
-@include('venta.delete')
+
+                                        @include('venta.delete')
                                         @endforeach
                                         @endif
 
@@ -121,7 +125,7 @@
                                 </tbody>
 
                             </table>
-                           {{$venta->links()}}
+                            {{$venta->links()}}
 
 
                         </div>
@@ -143,7 +147,3 @@
 
 
 @endsection
-
-
-
-

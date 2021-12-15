@@ -11,8 +11,11 @@ class CategoriBebidaController extends Controller
    
     public function index(Request $request)
     {
+
         $texto=trim($request->get('texto'));
+
         $bebidacategoria=DB::table('categoria_bebida as cb')
+
                  ->select('cb.id','cb.categoria_bebida')
 
                  ->where('cb.categoria_bebida','LIKE','%'.$texto.'%')
@@ -32,11 +35,15 @@ class CategoriBebidaController extends Controller
    
     public function store(Request $request)
     {
+        //creamos una instancia del modelo categoria bebida
         $categoriabebida=new CategoriaBebida;
+
+        //variable        campo de la bd               input (name)
         $categoriabebida->categoria_bebida=$request->input('categoriabebida');
         
      
         $categoriabebida->save();
+
         return redirect()->route('categoriabebida.index')->with('mensaje','Categoria Bebida creada correctamente');
     }
 
@@ -48,7 +55,10 @@ class CategoriBebidaController extends Controller
   
     public function edit($id)
     {
+
+        //creando una variable = modelo::
         $categoriabebida=CategoriaBebida::findOrFail($id);
+                                        //mandar la variable al archivo
         return view('categoriabebida.edit',compact('categoriabebida'));
     }
 
@@ -57,9 +67,11 @@ class CategoriBebidaController extends Controller
     {
         
         $categoriabebida=CategoriaBebida::findOrFail($id);
+
         $categoriabebida->categoria_bebida=$request->input('categoriabebida');
         
         $categoriabebida->save();
+
         return redirect()->route('categoriabebida.index')->with('mensaje','Categoria Bebida Editada correctamente');
 
     }
@@ -68,7 +80,9 @@ class CategoriBebidaController extends Controller
     public function destroy($id)
     {
         $categoriabebida=CategoriaBebida::findOrFail($id);
+
         $categoriabebida->delete();
+        
         return redirect()->route('categoriabebida.index')->with('mensaje','Categoria Bebida Eliminada correctamente');;
     }
 }

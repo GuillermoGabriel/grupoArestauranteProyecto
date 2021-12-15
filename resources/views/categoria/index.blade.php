@@ -17,6 +17,7 @@
             </ol>
           </div>
         </div>
+        <!-- codigo para obtener un mensaje -->
         @if(Session::has('mensaje'))
           <div class="alert alert-success alert-dismissible my-2" role="alert">
             {{Session::get('mensaje')}}
@@ -25,6 +26,7 @@
               </button>
           </div>
         @endif
+
           <div class="col-auto my-1">
                <a href="{{route('categoria.create')}}" class="btn btn-success">Nueva Categoria  <i class="fas fa-plus"></i></a>
           </div>

@@ -9,7 +9,7 @@
       <div class="row mb-2">
                            
                             <div class=" col-sm-6 form-group" >
-                   <center><img height="702px" widht="100%" src="/image/prueba.jpg" alt="" srcset=""></center>      
+                   <center><img height="700px" widht="100%" src="/image/comedor.jpg" alt="" srcset=""></center>      
                             </div>
 
 </div>    

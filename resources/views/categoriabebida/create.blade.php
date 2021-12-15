@@ -34,6 +34,8 @@
               <div class="card-header">
                 <h3 class="card-title">Nueva Categoria Bebida</h3>
               </div>
+
+              <!-- aca lo enviamos al store porque ahi se encargara de guardar los datos -->
                 <form action="{{route('categoriabebida.store')}}" method="post" class="col-sm-12">
 
                 <div class="col-sm-12">

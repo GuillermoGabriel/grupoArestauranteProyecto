@@ -16,7 +16,9 @@ class CategoriaController extends Controller
         $texto=trim($request->get('texto'));
         $categoria=DB::table('categorias as ca')
                     ->select('ca.id','ca.nombre','ca.descripcion','es.estado')
+                    
                     ->join('estado as es','es.id','=','ca.estado')
+
                     ->where('ca.nombre','LIKE','%'.$texto.'%')
                     // ->orderBy('ca.nombre','asc')
 
