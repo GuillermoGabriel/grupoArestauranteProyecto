@@ -76,7 +76,9 @@ class PlatoController extends Controller
     public function destroy($id)
     {
         $plato=Plato::findOrFail($id);
+
         $plato->delete();
+        
         return redirect()->route('platos.index')->with('mensaje','Plato eliminado correctamente');
         
 

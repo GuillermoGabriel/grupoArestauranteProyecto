@@ -45,7 +45,7 @@
 
                 <li class="nav-item">
                     <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-check-double"></i>
+                        <i class="nav-icon fas fa-folder-plus"></i>
                         <p>
                             Categorias Plato
                             <i class="fas fa-angle-left right"></i>
@@ -83,7 +83,7 @@
 
                 <li class="nav-item">
                     <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-wine-bottle"></i>
+                        <i class="nav-icon fas fa-cocktail"></i>
                         <p>
                             Categorias Bebidas
                             <i class="fas fa-angle-left right"></i>
@@ -182,7 +182,7 @@
 
                     <x-dropdown-link :href="route('logout')" onclick="event.preventDefault();
                                                 this.closest('form').submit();">
-                     <center> <h6> <p class="text-danger"> <i class="nav-icon fas fa-reply-all"></i>  {{  __('Cerrar Sesion') }}</p></h6></center>
+                     <center> <h6> <p class="text-danger"> <i class="nav-icon fas fa-user-lock"></i>  {{  __('Cerrar Sesion') }}</p></h6></center>
                     </x-dropdown-link>
                 </form>
 
