@@ -22,7 +22,7 @@
       var daym = mydate.getDate();
       if (daym < 10)
           daym = "0" + daym;
-      document.write("<small><h6><font color='000000' face=''><b>" + daym + "/" + month + "/" + year +
+    document.write(" <small><h6><font color='000000' face=''><b>" + daym + "/" + month + "/" + year +
           "</b></font></h6></small>")
       </script>
 
@@ -51,10 +51,14 @@
                                   <i class="fas fa-times"></i>
                               </button>
                           </div>
-                      </div>
-                  </form>
+                      
+                        </div>
+                  
+                    </form>
+                  
               </div>
           </li>
+          
 
   </nav>
   <!-- /.navbar -->

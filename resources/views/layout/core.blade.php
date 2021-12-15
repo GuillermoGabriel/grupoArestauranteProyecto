@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Categorias Platos</title>
+    <title>Restaurant Boca Come</title>
 
     @include('layout.script_cabecera')
 

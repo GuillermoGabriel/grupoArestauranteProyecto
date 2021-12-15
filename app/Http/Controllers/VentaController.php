@@ -27,7 +27,7 @@ class VentaController extends Controller
                      ->where('me.plato','LIKE','%'.$texto.'%')
                      ->orwhere('cl.nombre','LIKE','%'.$texto.'%')
                      ->orwhere('be.bebida','LIKE','%'.$texto.'%')
-                     ->orderby('ve.id','desc')
+                    //  ->orderby('ve.id','desc')
                      ->paginate(5);
 
             

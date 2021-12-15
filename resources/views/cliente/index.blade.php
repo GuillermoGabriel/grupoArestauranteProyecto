@@ -28,8 +28,8 @@
             @endif
 
             <div class="col-auto my-1">
-                <a href="{{route('clientes.create')}}" class="btn btn-success">Registrar Cliente <i
-                        class="fas fa-plus"></i></a>
+                <a href="{{route('clientes.create')}}" class="btn btn-success">Registrar Cliente
+                       <i  class="fas fa-user-plus"></i></a>
             </div>
 
         </div><!-- /.container-fluid -->

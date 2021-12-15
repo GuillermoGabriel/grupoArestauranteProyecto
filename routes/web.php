@@ -1,12 +1,15 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+
 use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\PlatoController;
 use App\Http\Controllers\BebidaController;
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\VentaController;
+use App\Http\Controllers\CategoriBebidaController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -23,15 +26,22 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('/categoria',CategoriaController::class);
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
 
-Route::resource('/platos',PlatoController::class);
+require __DIR__.'/auth.php';
 
-Route::resource('/bebidas',BebidaController::class);
+Route::resource('/categoria',CategoriaController::class)->middleware(['auth']);
 
-Route::resource('/clientes',ClienteController::class);
+Route::resource('/categoriabebida',CategoriBebidaController::class)->middleware(['auth']);
 
-Route::resource('/menu',MenuController::class);
+Route::resource('/platos',PlatoController::class)->middleware(['auth']);
 
-Route::resource('/registrarventa',VentaController::class);
+Route::resource('/bebidas',BebidaController::class)->middleware(['auth']);
 
+Route::resource('/clientes',ClienteController::class)->middleware(['auth']);
+
+Route::resource('/menu',MenuController::class)->middleware(['auth']);
+
+Route::resource('/registrarventa',VentaController::class)->middleware(['auth']);
